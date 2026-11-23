@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHEYTECH | Tecnología a tu alcance</title>
+<meta name="description" content="SHEYTECH, accesorios y productos tecnológicos en Oruro, Bolivia.">
+
+<style>
+:root {
+    --rosa: #e9a9d0;
+    --rosa-claro: #fff0f8;
+    --lila: #d9c1f2;
+    --morado: #713d80;
+    --oscuro: #45244f;
+    --texto: #443348;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fffafd;
+    color: var(--texto);
+}
+
+header {
+    background: linear-gradient(120deg, #f6d8eb, #d9c6f6);
+    padding: 28px 15px;
+    text-align: center;
+}
+
+.logo {
+    color: var(--oscuro);
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.eslogan {
+    margin-top: 8px;
+    color: #65476e;
+}
+
+nav {
+    background: var(--morado);
+    padding: 15px 8px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: #ffd8ef;
+}
+
+.portada {
+    min-height: 370px;
+    padding: 75px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #fff0f8, #e8ddfa);
+}
+
+.portada h1 {
+    color: var(--morado);
+    font-size: 38px;
+    margin-bottom: 18px;
+}
+
+.portada p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 650px;
+    margin: auto;
+}
+
+.boton {
+    display: inline-block;
+    margin-top: 25px;
+    background: #a64d91;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.boton:hover {
+    background: var(--morado);
+    transform: scale(1.04);
+}
+
+section {
+    padding: 55px 20px;
+}
+
+.titulo {
+    text-align: center;
+    color: var(--morado);
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.subtitulo {
+    text-align: center;
+    color: #806d84;
+    margin: 0 auto 30px;
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+.busqueda {
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+.busqueda input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e4c5e0;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+}
+
+.busqueda input:focus {
+    border-color: var(--morado);
+}
+
+.filtros {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.filtros button {
+    border: none;
+    padding: 10px 18px;
+    border-radius: 25px;
+    background: #eedcf3;
+    color: var(--morado);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filtros button.activo,
+.filtros button:hover {
+    background: var(--morado);
+    color: white;
+}
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 25px;
+    max-width: 1150px;
+    margin: auto;
+}
+
+.producto {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px #9b6c9b20;
+    border: 1px solid #f2e1ef;
+    transition: 0.3s;
+}
+
+.producto:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 9px 22px #9b6c9b35;
+}
+
+.foto {
+    height: 205px;
+    background: linear-gradient(135deg, #f7ddec, #e6d9f7);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.foto.sin-foto::after {
+    content: "SHEYTECH - Imagen no disponible";
+    color: var(--morado);
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+}
+
+.contenido {
+    padding: 18px;
+}
+
+.contenido h3 {
+    color: var(--morado);
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.descripcion {
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 43px;
+    color: #746879;
+}
+
+.precio {
+    font-size: 22px;
+    color: #b13c88;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.consultar {
+    display: block;
+    text-align: center;
+    background: #a64d91;
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 25px;
+    font-weight: bold;
+}
+
+.consultar:hover {
+    background: var(--morado);
+}
+
+.sin-resultados {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    color: var(--morado);
+}
+
+.nosotros {
+    background: #f5e9fa;
+    text-align: center;
+}
+
+.nosotros p {
+    max-width: 800px;
+    margin: 15px auto;
+    line-height: 1.8;
+    font-size: 16px;
+}
+
+.ventajas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 30px auto 0;
+}
+
+.ventaja {
+    background: white;
+    border-radius: 15px;
+    padding: 25px 15px;
+    box-shadow: 0 4px 15px #9b6c9b18;
+}
+
+.ventaja h3 {
+    color: var(--morado);
+    margin-bottom: 10px;
+}
+
+.contacto {
+    text-align: center;
+}
+
+.datos {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    border-radius: 18px;
+    padding: 30px 20px;
+    box-shadow: 0 5px 20px #9b6c9b20;
+}
+
+.datos p {
+    margin: 18px 0;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+footer {
+    background: var(--oscuro);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+    line-height: 1.8;
+}
+
+footer h2 {
+    letter-spacing: 4px;
+    margin-bottom: 8px;
+}
+
+.whatsapp {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 200;
+    background: #20bd68;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px #0003;
+}
+
+.whatsapp:hover {
+    background: #159b51;
+}
+
+@media(max-width: 600px) {
+    .logo {
+        font-size: 30px;
+    }
+
+    .portada h1 {
+        font-size: 29px;
+    }
+
+    nav a {
+        margin: 5px 7px;
+        font-size: 12px;
+    }
+
+    section {
+        padding: 40px 15px;
+    }
+
+    .titulo {
+        font-size: 25px;
+    }
+
+    .catalogo {
+        grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+        gap: 13px;
+    }
+
+    .foto {
+        height: 150px;
+    }
+
+    .contenido {
+        padding: 12px;
+    }
+
+    .contenido h3 {
+        font-size: 16px;
+    }
+
+    .descripcion {
+        font-size: 13px;
+    }
+
+    .precio {
+        font-size: 19px;
+    }
+
+    .consultar {
+        font-size: 12px;
+        padding: 10px 5px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">SHEYTECH</div>
+    <p class="eslogan">Tecnología a tu alcance</p>
+</header>
+
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#catalogo">Catálogo</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<div class="portada" id="inicio">
+    <h1>Bienvenido a SHEYTECH</h1>
+    <p>
+        Descubre productos y accesorios tecnológicos
+        para acompañarte en tu día a día.
+        Calidad, innovación y atención personalizada
+        en un solo lugar.
+    </p>
+    <a href="#catalogo" class="boton">Explorar catálogo</a>
+</div>
+
+<section id="catalogo">
+
+    <h2 class="titulo">Nuestro catálogo</h2>
+
+    <p class="subtitulo">
+        Explora nuestros productos tecnológicos.
+        Selecciona el producto que te interesa y
+        contáctanos directamente por WhatsApp.
+    </p>
+
+    <div class="busqueda">
+        <input type="text" id="buscar"
+        placeholder="Buscar un producto..."
+        oninput="filtrarProductos()">
+    </div>
+
+    <div class="filtros">
+        <button class="activo" onclick="filtrarCategoria('todos', this)">Todos</button>
+        <button onclick="filtrarCategoria('audio', this)">Audio</button>
+        <button onclick="filtrarCategoria('computacion', this)">Computación</button>
+        <button onclick="filtrarCategoria('celulares', this)">Celulares</button>
+        <button onclick="filtrarCategoria('accesorios', this)">Accesorios</button>
+    </div>
+
+    <div class="catalogo" id="listaProductos">
+
+        <!-- PRODUCTO 1: MOUSE -->
+
+        <article class="producto" data-categoria="computacion">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80"
+                alt="Mouse inalámbrico"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Mouse inalámbrico</h3>
+                <p class="descripcion">
+                    Accesorio práctico para trabajar,
+                    estudiar y utilizar tu computadora.
+                </p>
+                <div class="precio">Bs. 65</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20el%20mouse.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 2: AURICULARES -->
+
+        <article class="producto" data-categoria="audio">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80"
+                alt="Auriculares inalámbricos"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Auriculares inalámbricos</h3>
+                <p class="descripcion">
+                    Diseño compacto para escuchar
+                    música y atender llamadas.
+                </p>
+                <div class="precio">Bs. 95</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20los%20auriculares.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 3: PARLANTE -->
+
+        <article class="producto" data-categoria="audio">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=600&q=80"
+                alt="Parlante Bluetooth"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Parlante Bluetooth</h3>
+                <p class="descripcion">
+                    Disfruta de tu música favorita
+                    en reuniones y momentos especiales.
+                </p>
+                <div class="precio">Bs. 150</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20el%20parlante.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 4: RELOJ -->
+
+        <article class="producto" data-categoria="accesorios">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80"
+                alt="Reloj inteligente"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Reloj inteligente</h3>
+                <p class="descripcion">
+                    Un accesorio moderno para complementar
+                    tu estilo y tu rutina.
+                </p>
+                <div class="precio">Bs. 220</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20el%20reloj%20inteligente.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 5: CARGADORES -->
+
+        <article class="producto" data-categoria="celulares">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80"
+                alt="Cargadores y cables"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Cargadores y cables</h3>
+                <p class="descripcion">
+                    Accesorios para cargar y conectar
+                    tus dispositivos electrónicos.
+                </p>
+                <div class="precio">Desde Bs. 35</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20cargadores%20y%20cables.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 6: LAPTOP -->
+
+        <article class="producto" data-categoria="computacion">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+                alt="Laptop"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Accesorios para laptop</h3>
+                <p class="descripcion">
+                    Complementos para mejorar
+                    tu experiencia con la computadora.
+                </p>
+                <div class="precio">Desde Bs. 50</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20accesorios%20para%20laptop.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 7: CELULAR -->
+
+        <article class="producto" data-categoria="celulares">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+                alt="Teléfono celular"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Accesorios para celular</h3>
+                <p class="descripcion">
+                    Complementos para proteger y
+                    utilizar mejor tu teléfono.
+                </p>
+                <div class="precio">Consultar precio</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20accesorios%20para%20celular.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 8: SOPORTE -->
+
+        <article class="producto" data-categoria="accesorios">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=600&q=80"
+                alt="Soporte para celular"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Soporte para celular</h3>
+                <p class="descripcion">
+                    Mantén tu teléfono en una posición
+                    cómoda para visualizar contenido.
+                </p>
+                <div class="precio">Bs. 45</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20el%20soporte%20para%20celular.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+        <!-- PRODUCTO 9: ESCRITORIO -->
+
+        <article class="producto" data-categoria="accesorios">
+            <div class="foto">
+                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                alt="Accesorios de escritorio"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.classList.add('sin-foto')">
+            </div>
+            <div class="contenido">
+                <h3>Accesorios de escritorio</h3>
+                <p class="descripcion">
+                    Elementos prácticos para organizar
+                    tu espacio de trabajo o estudio.
+                </p>
+                <div class="precio">Consultar precio</div>
+                <a class="consultar" target="_blank"
+                href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20consultar%20por%20accesorios%20de%20escritorio.">
+                    Consultar producto
+                </a>
+            </div>
+        </article>
+
+    </div>
+
+    <p class="sin-resultados" id="sinResultados">
+        No encontramos productos con esa búsqueda.
+        Intenta con otro nombre.
+    </p>
+
+    <p class="subtitulo" style="margin-top:30px">
+        ¿Buscas otro producto? Escríbenos y consulta
+        por disponibilidad y precios.
+    </p>
+
+</section>
+
+<section class="nosotros" id="nosotros">
+
+    <h2 class="titulo">Conoce SHEYTECH</h2>
+
+    <p>
+        SHEYTECH es un emprendimiento dedicado a la
+        comercialización de productos y accesorios tecnológicos.
+    </p>
+
+    <p>
+        Nuestro propósito es acercar la tecnología a las personas
+        mediante productos útiles, atención amable y una experiencia
+        de compra sencilla.
+    </p>
+
+    <div class="ventajas">
+
+        <div class="ventaja">
+            <h3>Atención personalizada</h3>
+            <p>Te ayudamos a consultar por los productos que necesitas.</p>
+        </div>
+
+        <div class="ventaja">
+            <h3>Variedad</h3>
+            <p>Accesorios y artículos para diferentes dispositivos.</p>
+        </div>
+
+        <div class="ventaja">
+            <h3>Contacto directo</h3>
+            <p>Realiza tus consultas fácilmente por WhatsApp.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contacto" id="contacto">
+
+    <h2 class="titulo">Contáctanos</h2>
+
+    <p class="subtitulo">
+        Estamos disponibles para responder tus consultas
+        y brindarte información sobre nuestros productos.
+    </p>
+
+    <div class="datos">
+
+        <p>
+            <strong>WhatsApp:</strong><br>
+            +591 62788615
+        </p>
+
+        <p>
+            <strong>Dirección:</strong><br>
+            Calle Potosí entre Aroma y Rodríguez,
+            Oruro, Bolivia.
+        </p>
+
+        <p>
+            <strong>Horario de atención:</strong><br>
+            De 10:00 a 21:00.
+        </p>
+
+        <a class="boton"
+        href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quisiera%20más%20información."
+        target="_blank">
+            Escribir por WhatsApp
+        </a>
+
+        <br>
+
+        <a class="boton"
+        href="https://www.google.com/maps/search/?api=1&query=Calle+Potosi+entre+Aroma+y+Rodriguez+Oruro+Bolivia"
+        target="_blank">
+            Ver ubicación
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    <h2>SHEYTECH</h2>
+    <p>Tecnología a tu alcance</p>
+    <p>Oruro - Bolivia</p>
+    <p>© 2026 SHEYTECH. Todos los derechos reservados.</p>
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/59162788615?text=Hola%20SHEYTECH,%20quiero%20información."
+target="_blank">
+    WhatsApp
+</a>
+
+<script>
+
+let categoriaSeleccionada = "todos";
+
+function filtrarProductos() {
+
+    const texto = document
+        .getElementById("buscar")
+        .value.toLowerCase();
+
+    const productos = document.querySelectorAll(".producto");
+
+    let encontrados = 0;
+
+    productos.forEach(producto => {
+
+        const nombre = producto
